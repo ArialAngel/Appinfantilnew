@@ -1,0 +1,484 @@
+Date/Time:       2023-06-25 19:43:55 
+Command line:    /home/luz/Documentos/app/beeware-venv/bin/briefcase new
+
+OS Release:      Linux 5.15.0-52-generic
+OS Version:      #58-Ubuntu SMP Thu Oct 13 08:03:55 UTC 2022
+Architecture:    x86_64
+Platform:        Linux-5.15.0-52-generic-x86_64-with-glibc2.35
+
+Python exe:      /home/luz/Documentos/app/beeware-venv/bin/python
+Python version:  3.10.6 (main, May 29 2023, 11:10:38) [GCC 11.3.0]
+Virtual env:     True
+Conda env:       False
+
+Briefcase:       0.3.14
+Target platform: all
+Target format:   None
+
+Environment Variables:
+    CHROME_DESKTOP=code-url-handler.desktop
+    COLORTERM=truecolor
+    DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1001/bus
+    DEFAULTS_PATH=/usr/share/gconf/ubuntu.default.path
+    DESKTOP_SESSION=ubuntu
+    DISPLAY=:0
+    GDK_BACKEND=x11
+    GDMSESSION=ubuntu
+    GIO_LAUNCHED_DESKTOP_FILE=/usr/share/applications/code.desktop
+    GIO_LAUNCHED_DESKTOP_FILE_PID=27078
+    GIT_ASKPASS=********************
+    GJS_DEBUG_OUTPUT=stderr
+    GJS_DEBUG_TOPICS=JS ERROR;JS LOG
+    GNOME_DESKTOP_SESSION_ID=this-is-deprecated
+    GNOME_SHELL_SESSION_MODE=ubuntu
+    GPG_AGENT_INFO=/run/user/1001/gnupg/S.gpg-agent:0:1
+    GTK_MODULES=gail:atk-bridge
+    HOME=/home/luz
+    INVOCATION_ID=423fd4e78b2a4f9e8bb13b6c4d99caa6
+    JOURNAL_STREAM=8:30266
+    LANG=es_CL.UTF-8
+    LANGUAGE=es_CL:es
+    LESSCLOSE=/usr/bin/lesspipe %s %s
+    LESSOPEN=| /usr/bin/lesspipe %s
+    LOGNAME=luz
+    LS_COLORS=
+    MANAGERPID=1108
+    MANDATORY_PATH=/usr/share/gconf/ubuntu.mandatory.path
+    ORIGINAL_XDG_CURRENT_DESKTOP=ubuntu:GNOME
+    PATH=/home/luz/Documentos/app/beeware-venv/bin:undefined
+    PWD=/home/luz/Documentos/app
+    QT_ACCESSIBILITY=1
+    QT_IM_MODULE=ibus
+    SESSION_MANAGER=local/asus-TUF-GAMING-FX504GE-FX80GE:@/tmp/.ICE-unix/2031,unix/asus-TUF-GAMING-FX504GE-FX80GE:/tmp/.ICE-unix/2031
+    SHELL=/bin/bash
+    SHLVL=1
+    SSH_AGENT_LAUNCHER=gnome-keyring
+    SSH_AUTH_SOCK=/run/user/1001/keyring/ssh
+    SYSTEMD_EXEC_PID=2167
+    TERM=xterm-256color
+    TERM_PROGRAM=vscode
+    TERM_PROGRAM_VERSION=1.79.2
+    USER=luz
+    USERNAME=luz
+    VSCODE_GIT_ASKPASS_EXTRA_ARGS=********************
+    VSCODE_GIT_ASKPASS_MAIN=********************
+    VSCODE_GIT_ASKPASS_NODE=********************
+    VSCODE_GIT_IPC_HANDLE=/run/user/1001/vscode-git-37dc8835ca.sock
+    WINDOWPATH=2
+    XAUTHORITY=/run/user/1001/gdm/Xauthority
+    XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg
+    XDG_CURRENT_DESKTOP=Unity
+    XDG_DATA_DIRS=/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+    XDG_MENU_PREFIX=gnome-
+    XDG_RUNTIME_DIR=/run/user/1001
+    XDG_SESSION_CLASS=user
+    XDG_SESSION_DESKTOP=ubuntu
+    XDG_SESSION_TYPE=x11
+    XMODIFIERS=@im=ibus
+    _=/home/luz/Documentos/app/beeware-venv/bin/briefcase
+
+Briefcase Log:
+[19:43:55]                                                                                                                                                            __main__.py:40
+           Briefcase requires git, but it is not installed (or is not on your PATH). Visit:                                                                           __main__.py:41
+                                                                                                                                                                      __main__.py:41
+               https://git-scm.com/                                                                                                                                   __main__.py:41
+                                                                                                                                                                      __main__.py:41
+           to download and install git manually.                                                                                                                      __main__.py:41
+                                                                                                                                                                      __main__.py:41
+           If you have installed git recently and are still getting this error, you may                                                                               __main__.py:41
+           need to restart your terminal session.                                                                                                                     __main__.py:41
+
+Main thread traceback:
+╭─────────────────────────────────────────────────────────────────────── Traceback (most recent call last) ────────────────────────────────────────────────────────────────────────╮
+│ /home/luz/Documentos/app/beeware-venv/lib/python3.10/site-packages/git/__init__.py:89 in <module>                                                                                │
+│                                                                                                                                                                                  │
+│   86                                                                                                                                                                             │
+│   87 #################                                                                                                                                                           │
+│   88 try:                                                                                                                                                                        │
+│ ❱ 89 │   refresh()                                                                                                                                                               │
+│   90 except Exception as exc:                                                                                                                                                    │
+│   91 │   raise ImportError("Failed to initialize: {0}".format(exc)) from exc                                                                                                     │
+│   92 #################                                                                                                                                                           │
+│                                                                                                                                                                                  │
+│ ╭─────────────────────────────────────────────────────────────────────────── locals ────────────────────────────────────────────────────────────────────────────╮                │
+│ │               _init_externals = <function _init_externals at 0x7f10ffb95e10>                                                                                  │                │
+│ │                         Actor = <class 'git.util.Actor'>                                                                                                      │                │
+│ │           AmbiguousObjectName = <class 'gitdb.exc.AmbiguousObjectName'>                                                                                       │                │
+│ │                       BadName = <class 'gitdb.exc.BadName'>                                                                                                   │                │
+│ │                     BadObject = <class 'gitdb.exc.BadObject'>                                                                                                 │                │
+│ │                 BadObjectType = <class 'gitdb.exc.BadObjectType'>                                                                                             │                │
+│ │                          base = <module 'git.index.base' from '/home/luz/Documentos/app/beeware-venv/lib/python3.10/site-packages/git/index/base.py'>         │                │
+│ │                BaseIndexEntry = <class 'git.index.typ.BaseIndexEntry'>                                                                                        │                │
+│ │                          Blob = <class 'git.objects.blob.Blob'>                                                                                               │                │
+│ │                    BlobFilter = <class 'git.index.typ.BlobFilter'>                                                                                            │                │
+│ │              BlockingLockFile = <class 'git.util.BlockingLockFile'>                                                                                           │                │
+│ │                    CacheError = <class 'git.exc.CacheError'>                                                                                                  │                │
+│ │                 CheckoutError = <class 'git.exc.CheckoutError'>                                                                                               │                │
+│ │                           cmd = <module 'git.cmd' from '/home/luz/Documentos/app/beeware-venv/lib/python3.10/site-packages/git/cmd.py'>                       │                │
+│ │                  CommandError = <class 'git.exc.CommandError'>                                                                                                │                │
+│ │                        Commit = <class 'git.objects.commit.Commit'>                                                                                           │                │
+│ │                        compat = <module 'git.compat' from '/home/luz/Documentos/app/beeware-venv/lib/python3.10/site-packages/git/compat.py'>                 │                │
+│ │                        config = <module 'git.config' from '/home/luz/Documentos/app/beeware-venv/lib/python3.10/site-packages/git/config.py'>                 │                │
+│ │                            db = <module 'git.db' from '/home/luz/Documentos/app/beeware-venv/lib/python3.10/site-packages/git/db.py'>                         │                │
+│ │                          diff = <module 'git.diff' from '/home/luz/Documentos/app/beeware-venv/lib/python3.10/site-packages/git/diff.py'>                     │                │
+│ │                          Diff = <class 'git.diff.Diff'>                                                                                                       │                │
+│ │                      Diffable = <class 'git.diff.Diffable'>                                                                                                   │                │
+│ │                     DiffIndex = <class 'git.diff.DiffIndex'>                                                                                                  │                │
+│ │                     FetchInfo = <class 'git.remote.FetchInfo'>                                                                                                │                │
+│ │                           fun = <module 'git.index.fun' from '/home/luz/Documentos/app/beeware-venv/lib/python3.10/site-packages/git/index/fun.py'>           │                │
+│ │                           Git = <class 'git.cmd.Git'>                                                                                                         │                │
+│ │                        GIT_OK = False                                                                                                                         │                │
+│ │                GitCmdObjectDB = <class 'git.db.GitCmdObjectDB'>                                                                                               │                │
+│ │               GitCommandError = <class 'git.exc.GitCommandError'>                                                                                             │                │
+│ │            GitCommandNotFound = <class 'git.exc.GitCommandNotFound'>                                                                                          │                │
+│ │               GitConfigParser = <class 'git.config.GitConfigParser'>                                                                                          │                │
+│ │                         GitDB = <class 'gitdb.db.git.GitDB'>                                                                                                  │                │
+│ │                      GitError = <class 'git.exc.GitError'>                                                                                                    │                │
+│ │                          head = <module 'git.refs.head' from '/home/luz/Documentos/app/beeware-venv/lib/python3.10/site-packages/git/refs/head.py'>           │                │
+│ │                          HEAD = <class 'git.refs.head.HEAD'>                                                                                                  │                │
+│ │                          Head = <class 'git.refs.head.Head'>                                                                                                  │                │
+│ │            HookExecutionError = <class 'git.exc.HookExecutionError'>                                                                                          │                │
+│ │                         index = <module 'git.index' from '/home/luz/Documentos/app/beeware-venv/lib/python3.10/site-packages/git/index/__init__.py'>          │                │
+│ │                    IndexEntry = <class 'git.index.typ.IndexEntry'>                                                                                            │                │
+│ │                     IndexFile = <class 'git.index.base.IndexFile'>                                                                                            │                │
+│ │                   IndexObject = <class 'git.objects.base.IndexObject'>                                                                                        │                │
+│ │                       inspect = <module 'inspect' from '/usr/lib/python3.10/inspect.py'>                                                                      │                │
+│ │                 InvalidDBRoot = <class 'gitdb.exc.InvalidDBRoot'>                                                                                             │                │
+│ │     InvalidGitRepositoryError = <class 'git.exc.InvalidGitRepositoryError'>                                                                                   │                │
+│ │                          List = typing.List                                                                                                                   │                │
+│ │                      LockFile = <class 'git.util.LockFile'>                                                                                                   │                │
+│ │                           log = <module 'git.refs.log' from '/home/luz/Documentos/app/beeware-venv/lib/python3.10/site-packages/git/refs/log.py'>             │                │
+│ │               NoSuchPathError = <class 'git.exc.NoSuchPathError'>                                                                                             │                │
+│ │                     NULL_TREE = <object object at 0x7f11017522d0>                                                                                             │                │
+│ │                        Object = <class 'git.objects.base.Object'>                                                                                             │                │
+│ │                       objects = <module 'git.objects' from '/home/luz/Documentos/app/beeware-venv/lib/python3.10/site-packages/git/objects/__init__.py'>      │                │
+│ │                      ODBError = <class 'gitdb.exc.ODBError'>                                                                                                  │                │
+│ │                      Optional = typing.Optional                                                                                                               │                │
+│ │                            os = <module 'os' from '/usr/lib/python3.10/os.py'>                                                                                │                │
+│ │                           osp = <module 'posixpath' from '/usr/lib/python3.10/posixpath.py'>                                                                  │                │
+│ │                    ParseError = <class 'gitdb.exc.ParseError'>                                                                                                │                │
+│ │                      PathLike = typing.Union[str, os.PathLike[str]]                                                                                           │                │
+│ │                      PushInfo = <class 'git.remote.PushInfo'>                                                                                                 │                │
+│ │                     reference = <module 'git.refs.reference' from '/home/luz/Documentos/app/beeware-venv/lib/python3.10/site-packages/git/refs/reference.py'> │                │
+│ │                     Reference = <class 'git.refs.reference.Reference'>                                                                                        │                │
+│ │                        RefLog = <class 'git.refs.log.RefLog'>                                                                                                 │                │
+│ │                   RefLogEntry = <class 'git.refs.log.RefLogEntry'>                                                                                            │                │
+│ │                       refresh = <function refresh at 0x7f10ffa30430>                                                                                          │                │
+│ │                          refs = <module 'git.refs' from '/home/luz/Documentos/app/beeware-venv/lib/python3.10/site-packages/git/refs/__init__.py'>            │                │
+│ │                        remote = <module 'git.remote' from '/home/luz/Documentos/app/beeware-venv/lib/python3.10/site-packages/git/remote.py'>                 │                │
+│ │                        Remote = <class 'git.remote.Remote'>                                                                                                   │                │
+│ │                RemoteProgress = <class 'git.util.RemoteProgress'>                                                                                             │                │
+│ │               RemoteReference = <class 'git.refs.remote.RemoteReference'>                                                                                     │                │
+│ │    remove_password_if_present = <function remove_password_if_present at 0x7f10ffa02440>                                                                       │                │
+│ │                          repo = <module 'git.repo' from '/home/luz/Documentos/app/beeware-venv/lib/python3.10/site-packages/git/repo/__init__.py'>            │                │
+│ │                          Repo = <class 'git.repo.base.Repo'>                                                                                                  │                │
+│ │          RepositoryDirtyError = <class 'git.exc.RepositoryDirtyError'>                                                                                        │                │
+│ │                        rmtree = <function rmtree at 0x7f10ffa01990>                                                                                           │                │
+│ │                    RootModule = <class 'git.objects.submodule.root.RootModule'>                                                                               │                │
+│ │            RootUpdateProgress = <class 'git.objects.submodule.root.RootUpdateProgress'>                                                                       │                │
+│ │                   safe_decode = <function safe_decode at 0x7f10ffb96680>                                                                                      │                │
+│ │                      Sequence = typing.Sequence                                                                                                               │                │
+│ │                     StageType = <class 'int'>                                                                                                                 │                │
+│ │                         Stats = <class 'git.util.Stats'>                                                                                                      │                │
+│ │                     Submodule = <class 'git.objects.submodule.base.Submodule'>                                                                                │                │
+│ │                      symbolic = <module 'git.refs.symbolic' from '/home/luz/Documentos/app/beeware-venv/lib/python3.10/site-packages/git/refs/symbolic.py'>   │                │
+│ │             SymbolicReference = <class 'git.refs.symbolic.SymbolicReference'>                                                                                 │                │
+│ │                           sys = <module 'sys' (built-in)>                                                                                                     │                │
+│ │                           tag = <module 'git.refs.tag' from '/home/luz/Documentos/app/beeware-venv/lib/python3.10/site-packages/git/refs/tag.py'>             │                │
+│ │                           Tag = <class 'git.refs.tag.TagReference'>                                                                                           │                │
+│ │                     TagObject = <class 'git.objects.tag.TagObject'>                                                                                           │                │
+│ │                  TagReference = <class 'git.refs.tag.TagReference'>                                                                                           │                │
+│ │                    to_hex_sha = <function to_hex_sha at 0x7f10ffbbe4d0>                                                                                       │                │
+│ │                          Tree = <class 'git.objects.tree.Tree'>                                                                                               │                │
+│ │                  TreeModifier = <class 'git.objects.tree.TreeModifier'>                                                                                       │                │
+│ │                         Tuple = typing.Tuple                                                                                                                  │                │
+│ │                           typ = <module 'git.index.typ' from '/home/luz/Documentos/app/beeware-venv/lib/python3.10/site-packages/git/index/typ.py'>           │                │
+│ │                 TYPE_CHECKING = False                                                                                                                         │                │
+│ │                         types = <module 'git.types' from '/home/luz/Documentos/app/beeware-venv/lib/python3.10/site-packages/git/types.py'>                   │                │
+│ │                         Union = typing.Union                                                                                                                  │                │
+│ │          UnmergedEntriesError = <class 'git.exc.UnmergedEntriesError'>                                                                                        │                │
+│ │             UnsafeOptionError = <class 'git.exc.UnsafeOptionError'>                                                                                           │                │
+│ │           UnsafeProtocolError = <class 'git.exc.UnsafeProtocolError'>                                                                                         │                │
+│ │          UnsupportedOperation = <class 'gitdb.exc.UnsupportedOperation'>                                                                                      │                │
+│ │                UpdateProgress = <class 'git.objects.submodule.base.UpdateProgress'>                                                                           │                │
+│ │                          util = <module 'git.index.util' from '/home/luz/Documentos/app/beeware-venv/lib/python3.10/site-packages/git/index/util.py'>         │                │
+│ │ WorkTreeRepositoryUnsupported = <class 'git.exc.WorkTreeRepositoryUnsupported'>                                                                               │                │
+│ ╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯                │
+│                                                                                                                                                                                  │
+│ /home/luz/Documentos/app/beeware-venv/lib/python3.10/site-packages/git/__init__.py:76 in refresh                                                                                 │
+│                                                                                                                                                                                  │
+│   73 │   global GIT_OK                                                                        ╭── locals ───╮                                                                    │
+│   74 │   GIT_OK = False                                                                       │ path = None │                                                                    │
+│   75 │                                                                                        ╰─────────────╯                                                                    │
+│ ❱ 76 │   if not Git.refresh(path=path):                                                                                                                                          │
+│   77 │   │   return                                                                                                                                                              │
+│   78 │   if not FetchInfo.refresh():                                                                                                                                             │
+│   79 │   │   return                                                                                                                                                              │
+│                                                                                                                                                                                  │
+│ /home/luz/Documentos/app/beeware-venv/lib/python3.10/site-packages/git/cmd.py:392 in refresh                                                                                     │
+│                                                                                                                                                                                  │
+│    389 │   │   │   │   │   if mode in warn:                                                                                                                                      │
+│    390 │   │   │   │   │   │   print("WARNING: %s" % err)                                                                                                                        │
+│    391 │   │   │   │   │   else:                                                                                                                                                 │
+│ ❱  392 │   │   │   │   │   │   raise ImportError(err)                                                                                                                            │
+│    393 │   │   │   │   else:                                                                                                                                                     │
+│    394 │   │   │   │   │   err = (                                                                                                                                               │
+│    395 │   │   │   │   │   │   dedent(                                                                                                                                           │
+│                                                                                                                                                                                  │
+│ ╭───────────────────────────────────────────── locals ──────────────────────────────────────────────╮                                                                            │
+│ │     cls = <class 'git.cmd.Git'>                                                                   │                                                                            │
+│ │     err = 'Bad git executable.\nThe git executable must be specified in one of the following'+534 │                                                                            │
+│ │   error = ['error', 'e', 'raise', 'r', '2']                                                       │                                                                            │
+│ │ has_git = False                                                                                   │                                                                            │
+│ │    mode = 'raise'                                                                                 │                                                                            │
+│ │ new_git = 'git'                                                                                   │                                                                            │
+│ │ old_git = None                                                                                    │                                                                            │
+│ │    path = None                                                                                    │                                                                            │
+│ │   quiet = ['quiet', 'q', 'silence', 's', 'none', 'n', '0']                                        │                                                                            │
+│ │    warn = ['warn', 'w', 'warning', '1']                                                           │                                                                            │
+│ ╰───────────────────────────────────────────────────────────────────────────────────────────────────╯                                                                            │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+ImportError: Bad git executable.
+The git executable must be specified in one of the following ways:
+    - be included in your $PATH
+    - be set via $GIT_PYTHON_GIT_EXECUTABLE
+    - explicitly set via git.refresh()
+
+All git commands will error until this is rectified.
+
+This initial warning can be silenced or aggravated in the future by setting the
+$GIT_PYTHON_REFRESH environment variable. Use one of the following values:
+    - quiet|q|silence|s|none|n|0: for no warning or exception
+    - warn|w|warning|1: for a printed warning
+    - error|e|raise|r|2: for a raised exception
+
+Example:
+    export GIT_PYTHON_REFRESH=quiet
+
+
+The above exception was the direct cause of the following exception:
+
+╭─────────────────────────────────────────────────────────────────────── Traceback (most recent call last) ────────────────────────────────────────────────────────────────────────╮
+│ /home/luz/Documentos/app/beeware-venv/lib/python3.10/site-packages/briefcase/integrations/git.py:28 in verify_git_is_installed                                                   │
+│                                                                                                                                                                                  │
+│   25 │                                                                                        ╭───────────────────────────────── locals ─────────────────────────────────╮       │
+│   26 │   # Check whether the git executable could be imported.                                │ tools = <briefcase.integrations.base.ToolCache object at 0x7f1101252260> │       │
+│   27 │   try:                                                                                 ╰──────────────────────────────────────────────────────────────────────────╯       │
+│ ❱ 28 │   │   import git                                                                                                                                                          │
+│   29 │   except ImportError as e:  # pragma: no cover                                                                                                                            │
+│   30 │   │   # macOS provides git as part of the Xcode command line tools,                                                                                                       │
+│   31 │   │   # and also hijacks /usr/bin/git with a trigger that prompts the                                                                                                     │
+│                                                                                                                                                                                  │
+│ /home/luz/Documentos/app/beeware-venv/lib/python3.10/site-packages/git/__init__.py:91 in <module>                                                                                │
+│                                                                                                                                                                                  │
+│   88 try:                                                                                                                                                                        │
+│   89 │   refresh()                                                                                                                                                               │
+│   90 except Exception as exc:                                                                                                                                                    │
+│ ❱ 91 │   raise ImportError("Failed to initialize: {0}".format(exc)) from exc                                                                                                     │
+│   92 #################                                                                                                                                                           │
+│   93                                                                                                                                                                             │
+│                                                                                                                                                                                  │
+│ ╭─────────────────────────────────────────────────────────────────────────── locals ────────────────────────────────────────────────────────────────────────────╮                │
+│ │               _init_externals = <function _init_externals at 0x7f10ffb95e10>                                                                                  │                │
+│ │                         Actor = <class 'git.util.Actor'>                                                                                                      │                │
+│ │           AmbiguousObjectName = <class 'gitdb.exc.AmbiguousObjectName'>                                                                                       │                │
+│ │                       BadName = <class 'gitdb.exc.BadName'>                                                                                                   │                │
+│ │                     BadObject = <class 'gitdb.exc.BadObject'>                                                                                                 │                │
+│ │                 BadObjectType = <class 'gitdb.exc.BadObjectType'>                                                                                             │                │
+│ │                          base = <module 'git.index.base' from '/home/luz/Documentos/app/beeware-venv/lib/python3.10/site-packages/git/index/base.py'>         │                │
+│ │                BaseIndexEntry = <class 'git.index.typ.BaseIndexEntry'>                                                                                        │                │
+│ │                          Blob = <class 'git.objects.blob.Blob'>                                                                                               │                │
+│ │                    BlobFilter = <class 'git.index.typ.BlobFilter'>                                                                                            │                │
+│ │              BlockingLockFile = <class 'git.util.BlockingLockFile'>                                                                                           │                │
+│ │                    CacheError = <class 'git.exc.CacheError'>                                                                                                  │                │
+│ │                 CheckoutError = <class 'git.exc.CheckoutError'>                                                                                               │                │
+│ │                           cmd = <module 'git.cmd' from '/home/luz/Documentos/app/beeware-venv/lib/python3.10/site-packages/git/cmd.py'>                       │                │
+│ │                  CommandError = <class 'git.exc.CommandError'>                                                                                                │                │
+│ │                        Commit = <class 'git.objects.commit.Commit'>                                                                                           │                │
+│ │                        compat = <module 'git.compat' from '/home/luz/Documentos/app/beeware-venv/lib/python3.10/site-packages/git/compat.py'>                 │                │
+│ │                        config = <module 'git.config' from '/home/luz/Documentos/app/beeware-venv/lib/python3.10/site-packages/git/config.py'>                 │                │
+│ │                            db = <module 'git.db' from '/home/luz/Documentos/app/beeware-venv/lib/python3.10/site-packages/git/db.py'>                         │                │
+│ │                          diff = <module 'git.diff' from '/home/luz/Documentos/app/beeware-venv/lib/python3.10/site-packages/git/diff.py'>                     │                │
+│ │                          Diff = <class 'git.diff.Diff'>                                                                                                       │                │
+│ │                      Diffable = <class 'git.diff.Diffable'>                                                                                                   │                │
+│ │                     DiffIndex = <class 'git.diff.DiffIndex'>                                                                                                  │                │
+│ │                     FetchInfo = <class 'git.remote.FetchInfo'>                                                                                                │                │
+│ │                           fun = <module 'git.index.fun' from '/home/luz/Documentos/app/beeware-venv/lib/python3.10/site-packages/git/index/fun.py'>           │                │
+│ │                           Git = <class 'git.cmd.Git'>                                                                                                         │                │
+│ │                        GIT_OK = False                                                                                                                         │                │
+│ │                GitCmdObjectDB = <class 'git.db.GitCmdObjectDB'>                                                                                               │                │
+│ │               GitCommandError = <class 'git.exc.GitCommandError'>                                                                                             │                │
+│ │            GitCommandNotFound = <class 'git.exc.GitCommandNotFound'>                                                                                          │                │
+│ │               GitConfigParser = <class 'git.config.GitConfigParser'>                                                                                          │                │
+│ │                         GitDB = <class 'gitdb.db.git.GitDB'>                                                                                                  │                │
+│ │                      GitError = <class 'git.exc.GitError'>                                                                                                    │                │
+│ │                          head = <module 'git.refs.head' from '/home/luz/Documentos/app/beeware-venv/lib/python3.10/site-packages/git/refs/head.py'>           │                │
+│ │                          HEAD = <class 'git.refs.head.HEAD'>                                                                                                  │                │
+│ │                          Head = <class 'git.refs.head.Head'>                                                                                                  │                │
+│ │            HookExecutionError = <class 'git.exc.HookExecutionError'>                                                                                          │                │
+│ │                         index = <module 'git.index' from '/home/luz/Documentos/app/beeware-venv/lib/python3.10/site-packages/git/index/__init__.py'>          │                │
+│ │                    IndexEntry = <class 'git.index.typ.IndexEntry'>                                                                                            │                │
+│ │                     IndexFile = <class 'git.index.base.IndexFile'>                                                                                            │                │
+│ │                   IndexObject = <class 'git.objects.base.IndexObject'>                                                                                        │                │
+│ │                       inspect = <module 'inspect' from '/usr/lib/python3.10/inspect.py'>                                                                      │                │
+│ │                 InvalidDBRoot = <class 'gitdb.exc.InvalidDBRoot'>                                                                                             │                │
+│ │     InvalidGitRepositoryError = <class 'git.exc.InvalidGitRepositoryError'>                                                                                   │                │
+│ │                          List = typing.List                                                                                                                   │                │
+│ │                      LockFile = <class 'git.util.LockFile'>                                                                                                   │                │
+│ │                           log = <module 'git.refs.log' from '/home/luz/Documentos/app/beeware-venv/lib/python3.10/site-packages/git/refs/log.py'>             │                │
+│ │               NoSuchPathError = <class 'git.exc.NoSuchPathError'>                                                                                             │                │
+│ │                     NULL_TREE = <object object at 0x7f11017522d0>                                                                                             │                │
+│ │                        Object = <class 'git.objects.base.Object'>                                                                                             │                │
+│ │                       objects = <module 'git.objects' from '/home/luz/Documentos/app/beeware-venv/lib/python3.10/site-packages/git/objects/__init__.py'>      │                │
+│ │                      ODBError = <class 'gitdb.exc.ODBError'>                                                                                                  │                │
+│ │                      Optional = typing.Optional                                                                                                               │                │
+│ │                            os = <module 'os' from '/usr/lib/python3.10/os.py'>                                                                                │                │
+│ │                           osp = <module 'posixpath' from '/usr/lib/python3.10/posixpath.py'>                                                                  │                │
+│ │                    ParseError = <class 'gitdb.exc.ParseError'>                                                                                                │                │
+│ │                      PathLike = typing.Union[str, os.PathLike[str]]                                                                                           │                │
+│ │                      PushInfo = <class 'git.remote.PushInfo'>                                                                                                 │                │
+│ │                     reference = <module 'git.refs.reference' from '/home/luz/Documentos/app/beeware-venv/lib/python3.10/site-packages/git/refs/reference.py'> │                │
+│ │                     Reference = <class 'git.refs.reference.Reference'>                                                                                        │                │
+│ │                        RefLog = <class 'git.refs.log.RefLog'>                                                                                                 │                │
+│ │                   RefLogEntry = <class 'git.refs.log.RefLogEntry'>                                                                                            │                │
+│ │                       refresh = <function refresh at 0x7f10ffa30430>                                                                                          │                │
+│ │                          refs = <module 'git.refs' from '/home/luz/Documentos/app/beeware-venv/lib/python3.10/site-packages/git/refs/__init__.py'>            │                │
+│ │                        remote = <module 'git.remote' from '/home/luz/Documentos/app/beeware-venv/lib/python3.10/site-packages/git/remote.py'>                 │                │
+│ │                        Remote = <class 'git.remote.Remote'>                                                                                                   │                │
+│ │                RemoteProgress = <class 'git.util.RemoteProgress'>                                                                                             │                │
+│ │               RemoteReference = <class 'git.refs.remote.RemoteReference'>                                                                                     │                │
+│ │    remove_password_if_present = <function remove_password_if_present at 0x7f10ffa02440>                                                                       │                │
+│ │                          repo = <module 'git.repo' from '/home/luz/Documentos/app/beeware-venv/lib/python3.10/site-packages/git/repo/__init__.py'>            │                │
+│ │                          Repo = <class 'git.repo.base.Repo'>                                                                                                  │                │
+│ │          RepositoryDirtyError = <class 'git.exc.RepositoryDirtyError'>                                                                                        │                │
+│ │                        rmtree = <function rmtree at 0x7f10ffa01990>                                                                                           │                │
+│ │                    RootModule = <class 'git.objects.submodule.root.RootModule'>                                                                               │                │
+│ │            RootUpdateProgress = <class 'git.objects.submodule.root.RootUpdateProgress'>                                                                       │                │
+│ │                   safe_decode = <function safe_decode at 0x7f10ffb96680>                                                                                      │                │
+│ │                      Sequence = typing.Sequence                                                                                                               │                │
+│ │                     StageType = <class 'int'>                                                                                                                 │                │
+│ │                         Stats = <class 'git.util.Stats'>                                                                                                      │                │
+│ │                     Submodule = <class 'git.objects.submodule.base.Submodule'>                                                                                │                │
+│ │                      symbolic = <module 'git.refs.symbolic' from '/home/luz/Documentos/app/beeware-venv/lib/python3.10/site-packages/git/refs/symbolic.py'>   │                │
+│ │             SymbolicReference = <class 'git.refs.symbolic.SymbolicReference'>                                                                                 │                │
+│ │                           sys = <module 'sys' (built-in)>                                                                                                     │                │
+│ │                           tag = <module 'git.refs.tag' from '/home/luz/Documentos/app/beeware-venv/lib/python3.10/site-packages/git/refs/tag.py'>             │                │
+│ │                           Tag = <class 'git.refs.tag.TagReference'>                                                                                           │                │
+│ │                     TagObject = <class 'git.objects.tag.TagObject'>                                                                                           │                │
+│ │                  TagReference = <class 'git.refs.tag.TagReference'>                                                                                           │                │
+│ │                    to_hex_sha = <function to_hex_sha at 0x7f10ffbbe4d0>                                                                                       │                │
+│ │                          Tree = <class 'git.objects.tree.Tree'>                                                                                               │                │
+│ │                  TreeModifier = <class 'git.objects.tree.TreeModifier'>                                                                                       │                │
+│ │                         Tuple = typing.Tuple                                                                                                                  │                │
+│ │                           typ = <module 'git.index.typ' from '/home/luz/Documentos/app/beeware-venv/lib/python3.10/site-packages/git/index/typ.py'>           │                │
+│ │                 TYPE_CHECKING = False                                                                                                                         │                │
+│ │                         types = <module 'git.types' from '/home/luz/Documentos/app/beeware-venv/lib/python3.10/site-packages/git/types.py'>                   │                │
+│ │                         Union = typing.Union                                                                                                                  │                │
+│ │          UnmergedEntriesError = <class 'git.exc.UnmergedEntriesError'>                                                                                        │                │
+│ │             UnsafeOptionError = <class 'git.exc.UnsafeOptionError'>                                                                                           │                │
+│ │           UnsafeProtocolError = <class 'git.exc.UnsafeProtocolError'>                                                                                         │                │
+│ │          UnsupportedOperation = <class 'gitdb.exc.UnsupportedOperation'>                                                                                      │                │
+│ │                UpdateProgress = <class 'git.objects.submodule.base.UpdateProgress'>                                                                           │                │
+│ │                          util = <module 'git.index.util' from '/home/luz/Documentos/app/beeware-venv/lib/python3.10/site-packages/git/index/util.py'>         │                │
+│ │ WorkTreeRepositoryUnsupported = <class 'git.exc.WorkTreeRepositoryUnsupported'>                                                                               │                │
+│ ╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯                │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+ImportError: Failed to initialize: Bad git executable.
+The git executable must be specified in one of the following ways:
+    - be included in your $PATH
+    - be set via $GIT_PYTHON_GIT_EXECUTABLE
+    - explicitly set via git.refresh()
+
+All git commands will error until this is rectified.
+
+This initial warning can be silenced or aggravated in the future by setting the
+$GIT_PYTHON_REFRESH environment variable. Use one of the following values:
+    - quiet|q|silence|s|none|n|0: for no warning or exception
+    - warn|w|warning|1: for a printed warning
+    - error|e|raise|r|2: for a raised exception
+
+Example:
+    export GIT_PYTHON_REFRESH=quiet
+
+
+The above exception was the direct cause of the following exception:
+
+╭─────────────────────────────────────────────────────────────────────── Traceback (most recent call last) ────────────────────────────────────────────────────────────────────────╮
+│ /home/luz/Documentos/app/beeware-venv/lib/python3.10/site-packages/briefcase/__main__.py:25 in main                                                                              │
+│                                                                                                                                                                                  │
+│   22 │   │   command = Command(logger=logger, console=console)                                                                                                                   │
+│   23 │   │   options = command.parse_options(extra=extra_cmdline)                                                                                                                │
+│   24 │   │   command.parse_config(Path.cwd() / "pyproject.toml")                                                                                                                 │
+│ ❱ 25 │   │   command(**options)                                                                                                                                                  │
+│   26 │   except HelpText as e:                                                                                                                                                   │
+│   27 │   │   logger.info()                                                                                                                                                       │
+│   28 │   │   logger.info(str(e))                                                                                                                                                 │
+│                                                                                                                                                                                  │
+│ ╭─────────────────────────────────────────────────────────────────────────────────── locals ───────────────────────────────────────────────────────────────────────────────────╮ │
+│ │       command = <briefcase.commands.new.NewCommand object at 0x7f1101452890>                                                                                                 │ │
+│ │       Command = <class 'briefcase.commands.new.NewCommand'>                                                                                                                  │ │
+│ │       console = <briefcase.console.Console object at 0x7f11012533d0>                                                                                                         │ │
+│ │             e = BriefcaseCommandError('Briefcase requires git, but it is not installed (or is not on your PATH). Visit:\n\n    https://git-scm.com/\n\nto download and       │ │
+│ │                 install git manually.\n\nIf you have installed git recently and are still getting this error, you may\nneed to restart your terminal session.\n')            │ │
+│ │ extra_cmdline = []                                                                                                                                                           │ │
+│ │        logger = <briefcase.console.Log object at 0x7f11012535e0>                                                                                                             │ │
+│ │       options = {'template': None, 'template_branch': None}                                                                                                                  │ │
+│ │        result = 200                                                                                                                                                          │ │
+│ ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯ │
+│                                                                                                                                                                                  │
+│ /home/luz/Documentos/app/beeware-venv/lib/python3.10/site-packages/briefcase/commands/new.py:527 in __call__                                                                     │
+│                                                                                                                                                                                  │
+│   524 │   ):                                                                                                                                                                     │
+│   525 │   │   # Confirm host compatibility, and that all required tools are available.                                                                                           │
+│   526 │   │   # There are no apps, so finalize() will be a no op on app configurations.                                                                                          │
+│ ❱ 527 │   │   self.finalize()                                                                                                                                                    │
+│   528 │   │                                                                                                                                                                      │
+│   529 │   │   return self.new_app(                                                                                                                                               │
+│   530 │   │   │   template=template, template_branch=template_branch, **options                                                                                                  │
+│                                                                                                                                                                                  │
+│ ╭──────────────────────────────────── locals ────────────────────────────────────╮                                                                                               │
+│ │         options = {}                                                           │                                                                                               │
+│ │            self = <briefcase.commands.new.NewCommand object at 0x7f1101452890> │                                                                                               │
+│ │        template = None                                                         │                                                                                               │
+│ │ template_branch = None                                                         │                                                                                               │
+│ ╰────────────────────────────────────────────────────────────────────────────────╯                                                                                               │
+│                                                                                                                                                                                  │
+│ /home/luz/Documentos/app/beeware-venv/lib/python3.10/site-packages/briefcase/commands/base.py:520 in finalize                                                                    │
+│                                                                                                                                                                                  │
+│   517 │   │   │   to finalize. By default, all apps will be finalized.                         ╭────────────────────────────── locals ───────────────────────────────╮           │
+│   518 │   │   """                                                                              │  app = None                                                         │           │
+│   519 │   │   self.verify_host()                                                               │ self = <briefcase.commands.new.NewCommand object at 0x7f1101452890> │           │
+│ ❱ 520 │   │   self.verify_tools()                                                              ╰─────────────────────────────────────────────────────────────────────╯           │
+│   521 │   │                                                                                                                                                                      │
+│   522 │   │   if app is None:                                                                                                                                                    │
+│   523 │   │   │   for app in self.apps.values():                                                                                                                                 │
+│                                                                                                                                                                                  │
+│ /home/luz/Documentos/app/beeware-venv/lib/python3.10/site-packages/briefcase/commands/new.py:517 in verify_tools                                                                 │
+│                                                                                                                                                                                  │
+│   514 │   │   Raises MissingToolException if a required system tool is missing.                ╭────────────────────────────── locals ───────────────────────────────╮           │
+│   515 │   │   """                                                                              │ self = <briefcase.commands.new.NewCommand object at 0x7f1101452890> │           │
+│   516 │   │   super().verify_tools()                                                           ╰─────────────────────────────────────────────────────────────────────╯           │
+│ ❱ 517 │   │   git.verify_git_is_installed(tools=self.tools)                                                                                                                      │
+│   518 │                                                                                                                                                                          │
+│   519 │   def __call__(                                                                                                                                                          │
+│   520 │   │   self,                                                                                                                                                              │
+│                                                                                                                                                                                  │
+│ /home/luz/Documentos/app/beeware-venv/lib/python3.10/site-packages/briefcase/integrations/git.py:53 in verify_git_is_installed                                                   │
+│                                                                                                                                                                                  │
+│   50 │   │   │   ) from e                                                                     ╭───────────────────────────────── locals ─────────────────────────────────╮       │
+│   51 │   │                                                                                    │ tools = <briefcase.integrations.base.ToolCache object at 0x7f1101252260> │       │
+│   52 │   │   else:                                                                            ╰──────────────────────────────────────────────────────────────────────────╯       │
+│ ❱ 53 │   │   │   raise BriefcaseCommandError(                                                                                                                                    │
+│   54 │   │   │   │   """\                                                                                                                                                        │
+│   55 Briefcase requires git, but it is not installed (or is not on your PATH). Visit:                                                                                            │
+│   56                                                                                                                                                                             │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+BriefcaseCommandError: Briefcase requires git, but it is not installed (or is not on your PATH). Visit:
+
+    https://git-scm.com/
+
+to download and install git manually.
+
+If you have installed git recently and are still getting this error, you may
+need to restart your terminal session.
+
