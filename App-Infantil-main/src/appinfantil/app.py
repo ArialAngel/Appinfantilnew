@@ -67,7 +67,7 @@ class Appinfantil(toga.App):
 
 #-------------------------
 #-------------------------
-
+#cambio test2
     # Función que se ejecuta al presionar el botón de login
     def login(self, widget):
         # Obtener el usuario y la contraseña ingresados por el usuario
