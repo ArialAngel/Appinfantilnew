@@ -1,8 +1,11 @@
 import toga
 from toga.style import Pack
 from toga.style.pack import COLUMN
+#from toga.widgets import carousel ,label,button,box
 from toga.widgets import *
-import cv2
+from toga.constants import LEFT, RIGHT
+from toga.android.widgets.camera import CameraView
+import time
 import functools
 import pyzbar.pyzbar as pyzbar
 
@@ -61,7 +64,7 @@ class Appinfantil(toga.App):
 
 #-------------------------
 #-------------------------
-    def mostrar_ventana_principal(self, widget, tipo_usuario):
+    def mostrar_ventana_principal(self, widget):
         # Mostrar la ventana principal
         self.main_window.show()
 
@@ -74,169 +77,171 @@ class Appinfantil(toga.App):
         usuario = widget.parent.children[1].value
         contrasena = widget.parent.children[3].value
         #llamar a la funcion validar_login con los parametros usuario y contraseña
-        if self.validar_login(usuario, contrasena, widget)==True:
+        if self.validar_login(usuario, contrasena):
             # Ocultar la ventana de login
-            widget.parent.parent.hide()
-            # oculatar la ventana principal
-            self.main_window.hide()
-            #ocultar la ventana de login
-            widget.parent.parent.hide()
+            widget.visible = False
             #llamar a la funcion mostrar_ventana_inicio
             self.mostrar_ventana_inicio(widget)
         #si el usuario y la contraseña son incorrectos enviara un mensaje de error
         else:
-            #crear ventana de error
-            ventana_error = toga.Window(title="Error", size=(400, 200))
-            #crear caja para contener el mensaje de error
-            caja_error = toga.Box(style=Pack(direction=COLUMN, padding=5))
-            #crear label con el mensaje de error
-            label_error = toga.Label('Usuario o contraseña incorrectos', style=Pack(padding=(0, 5)))
-            #crear boton de aceptar al presionarlo se cierra la ventana de error
-            boton_aceptar = toga.Button('Aceptar', on_press=ventana_error.close)
+            #mostrar mensaje de error
+            self.main_window.info_dialog('Error', 'Usuario o contraseña incorrectos')
             
-            #agregar el label y el boton a la caja de error
-            caja_error.add(label_error)
-            caja_error.add(boton_aceptar)
-            #la ventana de error contiene pertenece a la clase Appinfantil
-            ventana_error.app = self
-            #mostrar la caja de error en la ventana de error
-            ventana_error.content = caja_error
-            #mostrar la ventana de error
-            ventana_error.show()
-
-
 #-------------------------
 #-------------------------
     #funcion que valida el usuario y la contraseña
-    def validar_login(self, usuario, contrasena, widget):
-        #los usuarios y contraseñas correctos estan en una base de datos
-        #en este caso se usan valores de ejemplo
-        #crear una lista con los usuarios y contraseñas correctos
-        usuarios = ['usuario', 'profesor']
-        contrasenas = ['contraseña', 'profesor']
-        #lista que contiene los usuarios y contraseñas correctos
-        usuarios_correctos = list(zip(usuarios, contrasenas))
-        #recorrer la lista de usuarios y contraseñas correctos
-        for usuario_correcto in usuarios_correctos:
-            #si el usuario y la contraseña son correctos retorna True
-            if usuario == usuario_correcto[0] and contrasena == usuario_correcto[1]:
-                return True
-        #si el usuario y la contraseña son incorrectos retorna False
-        return False
+    def validar_login(self,usuario, contraseña):
+    # Diccionario de usuarios y contraseñas asignadas
+        usuarios = {
+        'admin': 'password_admin',
+        'usuario1': '123456',
+        'usuario2': 'qwerty'
+    }
+
+    # Verificar si el usuario y la contraseña coinciden con los valores del diccionario
+        if usuario in usuarios and contraseña == usuarios[usuario]:
+            return True
+        else:
+            return False
+
 #-------------------------
 #-------------------------
 #funcion que muestra la ventana de inicio
     def mostrar_ventana_inicio(self, widget):
             #crear ventana de inicio
             ventana_inicio = toga.Window(title="Inicio", size=(400, 200))
-            #añadir boton de leer QR
+            #la ventana pertenece a la clase Appinfantil
+            ventana_inicio.app = self
+            # Crear los botones
             boton_qr = toga.Button('Leer QR', on_press=self.mostrar_ventana_qr)
-            ventana_inicio.content = boton_qr
-            #al presionar el boton de leer QR se llama a la funcion mostrar_ventana_qr
-            boton_qr.on_press = functools.partial(self.mostrar_ventana_qr, widget)
-            #-------------------------
-            #crear boton de ver colección
             boton_coleccion = toga.Button('Ver colección', on_press=self.mostrar_ventana_coleccion)
-            ventana_inicio.content = boton_coleccion
-            #al presionar el boton de ver colección se llama a la funcion mostrar_ventana_coleccion
-            boton_coleccion.on_press = functools.partial(self.mostrar_ventana_coleccion, widget)
-            #-------------------------
-            # Crear botón de logout para volver a la ventana de login y agregarlo a la caja de login
-            boton_logout = toga.Button('Atrás', on_press=self.mostrar_ventana_login)
-            ventana_inicio.content = boton_logout
+            boton_logout = toga.Button('Cerrar sesión', on_press=self.mostrar_ventana_principal)
+
+            # Crear una caja y agregar los botones a la caja
+            caja = toga.Box()
+            caja.add(boton_qr)
+            caja.add(boton_coleccion)
+            caja.add(boton_logout)
+
+            # Asignar la caja como contenido de la ventana
+            ventana_inicio.content = caja
 
             # Mostrar la ventana de inicio
             ventana_inicio.show()
-
+#-------------------------
+#-------------------------
+#cree la funcion mostrar_ventana_coleccion
+    def mostrar_ventana_coleccion(self, widget):
+        #mostrar ventana de coleccion
+        ventana_coleccion = toga.Window(title="Colección", size=(400, 200))
+        #la ventana pertenece a la clase Appinfantil
+        ventana_coleccion.app = self
+        #mostrar 4 listas desplegables
+        #primera lista desplegable Matematicas
+        lista_matematicas = toga.Selection(items=['Matematicas', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'])
+        ventana_coleccion.content = lista_matematicas
+        #segunda lista desplegable Lenguaje
+        lista_lenguaje = toga.Selection(items=['Lenguaje', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'])
+        ventana_coleccion.content = lista_lenguaje
+        #tercera lista desplegable Ciencias
+        lista_ciencias = toga.Selection(items=['Ciencias', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'])
+        ventana_coleccion.content = lista_ciencias
+        #cuarta lista desplegable Ingles
+        lista_ingles = toga.Selection(items=['Ingles', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'])
+        ventana_coleccion.content = lista_ingles
+        #crear boton de atrás
+        boton_atras = toga.Button('Atrás', on_press=self.mostrar_ventana_inicio)
+        ventana_coleccion.content = boton_atras
 #-------------------------
 #-------------------------
 #cree la funcion mostrar_ventana_qr
     def mostrar_ventana_qr(self, widget):
-        #crear ventana de qr
+         # Crear ventana de QR
         ventana_qr = toga.Window(title="QR", size=(400, 200))
-        #crear boton de atrás
-        boton_atras = toga.Button('Atrás', on_press=self.mostrar_ventana_inicio)
-        ventana_qr.content = boton_atras
-        #al presionar el boton de atrás se llama a la funcion mostrar_ventana_inicio
-        boton_atras.on_press = functools.partial(self.mostrar_ventana_inicio, widget)
-        #mostrar boton de leer qr y llama a la funcion leer_qr
-        boton_qr = toga.Button('Leer QR', on_press=self.leer_qr)
-        ventana_qr.content = boton_qr
-        #al presionar el boton de leer qr se llama a la funcion leer_qr
-        boton_qr.on_press = functools.partial(self.leer_qr, widget)
-        #crear boton para leer otro codigo qr
-        boton_otro_qr = toga.Button('Leer otro QR', on_press=self.leer_qr)
-        ventana_qr.content = boton_otro_qr
-        #al presionar el boton de leer otro qr se llama a la funcion leer_qr
-        boton_otro_qr.on_press = functools.partial(self.leer_qr, widget)
+        ventana_qr.app = self
 
-        # Mostrar la ventana de qr
+        # Crear los botones
+        boton_atras = toga.Button('Atrás', on_press=self.mostrar_ventana_inicio)
+        boton_qr = toga.Button('Leer QR', on_press=self.leer_qr)
+        boton_otro_qr = toga.Button('Leer otro QR', on_press=self.leer_qr)
+
+        # Crear una caja y agregar los botones a la caja
+        caja = toga.Box()
+        caja.add(boton_atras)
+        caja.add(boton_qr)
+        caja.add(boton_otro_qr)
+
+        # Asignar la caja como contenido de la ventana
+        ventana_qr.content = caja
+
+        # Mostrar la ventana de QR
         ventana_qr.show()
 #-------------------------
 #-------------------------
 
 #cree la funcion leer_qr
-    def leer_qr(self, widget):
-        #preguntar si desea leer un qr desde la camara o la galeria
-        widget.parent.parent.info_dialog('Leer QR', '¿Desea leer un QR desde la cámara o la galería?')
-        #crear boton de camara
-        boton_camara = toga.Button('Cámara', on_press=self.mostrar_ventana_camara)
-        widget.parent.parent.content = boton_camara
-        #al presionar el boton de camara se enciende la camara
-        boton_camara.on_press = functools.partial(self.mostrar_ventana_camara, widget)
-        #comienza a buscar un codigo qr para leer con la camara
-        widget.parent.parent.info_dialog('Leer QR', 'Buscando código QR')
-        #si se encuentra un codigo qr se muestra un mensaje de exito
-        widget.parent.parent.info_dialog('Leer QR', 'Código QR encontrado')
-        #se lee el contenido del codigo qr
-        widget.parent.parent.info_dialog('Leer QR', 'Contenido del código QR: ')
-        #agrega el contenido del codigo qr a la lista de codigos qr
-        widget.parent.parent.info_dialog('Leer QR', 'Código QR agregado a la lista')
-        
-        #se pregunta si desea leer otro codigo qr
-        widget.parent.parent.info_dialog('Leer QR', '¿Desea leer otro código QR?')
-        #crear boton de si
-        boton_si = toga.Button('Si', on_press=self.leer_qr)
-        widget.parent.parent.content = boton_si
-        #al presionar el boton de si se llama a la funcion leer_qr
-        boton_si.on_press = functools.partial(self.leer_qr, widget)
-        #crear boton de no
-        boton_no = toga.Button('No', on_press=self.mostrar_ventana_inicio)
-        widget.parent.parent.content = boton_no
-        #al presionar el boton de no se llama a la funcion mostrar_ventana_inicio
-        boton_no.on_press = functools.partial(self.mostrar_ventana_inicio, widget)
+    def leer_qr(self, frame):
+        # Buscar códigos QR en el fotograma
+        codigos = pyzbar.decode(frame)
 
-        #crear boton de galeria
-        boton_galeria = toga.Button('Galería', on_press=self.mostrar_ventana_galeria)
-        widget.parent.parent.content = boton_galeria
-        #al presionar el boton de galeria se abre la galeria
-        boton_galeria.on_press = functools.partial(self.mostrar_ventana_galeria, widget)
-        #seleccionar un codigo qr de la galeria
-        widget.parent.parent.info_dialog('Leer QR', 'Seleccione un código QR de la galería')
-        #si se selecciona un codigo qr se muestra un mensaje de exito
-        widget.parent.parent.info_dialog('Leer QR', 'Código QR seleccionado')
-        #se lee el contenido del codigo qr
-        widget.parent.parent.info_dialog('Leer QR', 'Contenido del código QR: ')
-        #agrega el contenido del codigo qr a la lista de codigos qr
-        widget.parent.parent.info_dialog('Leer QR', 'Código QR agregado a la lista')
-        #se pregunta si desea leer otro codigo qr
-        widget.parent.parent.info_dialog('Leer QR', '¿Desea leer otro código QR?')
-        #crear boton de si
-        boton_si = toga.Button('Si', on_press=self.leer_qr)
-        widget.parent.parent.content = boton_si
-        #al presionar el boton de si se llama a la funcion leer_qr
-        boton_si.on_press = functools.partial(self.leer_qr, widget)
-        #crear boton de no
-        boton_no = toga.Button('No', on_press=self.mostrar_ventana_inicio)
-        widget.parent.parent.content = boton_no
-        #al presionar el boton de no se llama a la funcion mostrar_ventana_inicio
-        boton_no.on_press = functools.partial(self.mostrar_ventana_inicio, widget)
+        # Procesar los códigos QR encontrados
+        for codigo in codigos:
+            # Extraer el contenido del código QR
+            contenido = codigo.data.decode('utf-8')
 
-        #crear boton de atrás
-        boton_atras = toga.Button('Atrás', on_press=self.mostrar_ventana_inicio)
-        widget.parent.parent.content = boton_atras
-        #al presionar el boton de atrás se llama a la funcion mostrar_ventana_inicio
-        boton_atras.on_press = functools.partial(self.mostrar_ventana_inicio, widget)
+            # Imprimir el contenido del código QR
+            print('Código QR encontrado:', contenido)
+
+            # Mostrar los contenidos QR en forma de carrusel
+            self.mostrar_contenidos_qr(contenido)
+
+        # Actualizar el visor de cámara con el fotograma procesado
+        self.camera_view.update_image(frame)
+
+        # Detener la captura de video después de leer 5 códigos QR
+        if len(codigos) >= 5:
+            self.camera_view.stop_capture()
+    # -------------------------
+    #  -------------------------
+    
+    def mostrar_contenidos_qr(self, contenido_qr):
+        # Crear una ventana para mostrar el carrusel
+        ventana_carrusel = toga.Window(title="Carrusel de Contenidos QR", size=(600, 400))
+
+        # Crear un carrousel para mostrar los contenidos
+        carrousel = Carousel()
+
+        # Crear una etiqueta con el contenido del código QR
+        etiqueta = Label(contenido_qr)
+
+        # Agregar la etiqueta al carrousel
+        carrousel.add(etiqueta)
+
+        # Crear botones de navegación izquierda y derecha para el carrousel
+        boton_izquierda = Button('<')
+        boton_derecha = Button('>')
+
+        # Configurar las acciones de los botones de navegación
+        def ir_a_izquierda(widget):
+            carrousel.select_previous()
+
+        def ir_a_derecha(widget):
+            carrousel.select_next()
+
+        boton_izquierda.on_press = ir_a_izquierda
+        boton_derecha.on_press = ir_a_derecha
+
+        # Crear una caja para contener los botones de navegación
+        caja_botones = Box(children=[boton_izquierda, boton_derecha], style=Pack(direction=LEFT))
+
+        # Crear una caja para contener el carrousel y los botones de navegación
+        caja_principal = Box(children=[carrousel, caja_botones], style=Pack(direction=RIGHT))
+
+        # Agregar la caja principal al contenido de la ventana del carrusel
+        ventana_carrusel.content = caja_principal
+
+        # Mostrar la ventana del carrusel
+        ventana_carrusel.show()
 
 def main():
     return Appinfantil('appinfantil', 'org.pybee.appinfantil')
