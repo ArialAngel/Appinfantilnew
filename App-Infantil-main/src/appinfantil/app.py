@@ -1,13 +1,15 @@
 import toga
+import cv2
 from toga.style import Pack
 from toga.style.pack import COLUMN
-#from toga.widgets import carousel ,label,button,box
+import toga_android as toga
 from toga.widgets import *
 from toga.constants import LEFT, RIGHT
-from toga.android.widgets.camera import CameraView
+from plyer import camera
 import time
 import functools
 import pyzbar.pyzbar as pyzbar
+
 
 class Appinfantil(toga.App):
     def startup(self):
@@ -93,7 +95,7 @@ class Appinfantil(toga.App):
     def validar_login(self,usuario, contraseña):
     # Diccionario de usuarios y contraseñas asignadas
         usuarios = {
-        'admin': 'password_admin',
+        'admin': 'admin',
         'usuario1': '123456',
         'usuario2': 'qwerty'
     }
@@ -132,26 +134,32 @@ class Appinfantil(toga.App):
 #-------------------------
 #cree la funcion mostrar_ventana_coleccion
     def mostrar_ventana_coleccion(self, widget):
-        #mostrar ventana de coleccion
+        # Crear ventana de colección
         ventana_coleccion = toga.Window(title="Colección", size=(400, 200))
-        #la ventana pertenece a la clase Appinfantil
+        # La ventana pertenece a la clase Appinfantil
         ventana_coleccion.app = self
-        #mostrar 4 listas desplegables
-        #primera lista desplegable Matematicas
+
+        # Crear las listas desplegables
         lista_matematicas = toga.Selection(items=['Matematicas', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'])
-        ventana_coleccion.content = lista_matematicas
-        #segunda lista desplegable Lenguaje
         lista_lenguaje = toga.Selection(items=['Lenguaje', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'])
-        ventana_coleccion.content = lista_lenguaje
-        #tercera lista desplegable Ciencias
         lista_ciencias = toga.Selection(items=['Ciencias', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'])
-        ventana_coleccion.content = lista_ciencias
-        #cuarta lista desplegable Ingles
         lista_ingles = toga.Selection(items=['Ingles', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'])
-        ventana_coleccion.content = lista_ingles
-        #crear boton de atrás
+
+        # Crear el botón "Atrás"
         boton_atras = toga.Button('Atrás', on_press=self.mostrar_ventana_inicio)
-        ventana_coleccion.content = boton_atras
+
+        # Crear un contenedor para las listas desplegables y el botón
+        contenedor = toga.Box(
+            children=[lista_matematicas, lista_lenguaje, lista_ciencias, lista_ingles, boton_atras],
+            style=Pack(direction=COLUMN, padding=5)
+        )
+
+        # Establecer el contenedor como contenido de la ventana de la colección
+        ventana_coleccion.content = contenedor
+
+        # Mostrar la ventana de la colección
+        ventana_coleccion.show()
+
 #-------------------------
 #-------------------------
 #cree la funcion mostrar_ventana_qr
@@ -162,8 +170,8 @@ class Appinfantil(toga.App):
 
         # Crear los botones
         boton_atras = toga.Button('Atrás', on_press=self.mostrar_ventana_inicio)
-        boton_qr = toga.Button('Leer QR', on_press=self.leer_qr)
-        boton_otro_qr = toga.Button('Leer otro QR', on_press=self.leer_qr)
+        boton_qr = toga.Button('Leer QR', on_press=self.camara)
+        boton_otro_qr = toga.Button('Leer otro QR', on_press=self.camara)
 
         # Crear una caja y agregar los botones a la caja
         caja = toga.Box()
@@ -176,13 +184,17 @@ class Appinfantil(toga.App):
 
         # Mostrar la ventana de QR
         ventana_qr.show()
+
 #-------------------------
 #-------------------------
 
 #cree la funcion leer_qr
-    def leer_qr(self, frame):
-        # Buscar códigos QR en el fotograma
-        codigos = pyzbar.decode(frame)
+    def leer_qr(self,filename):
+        # Leer la imagen capturada con OpenCV
+        image = cv2.imread(filename, cv2.IMREAD_GRAYSCALE)
+
+        # Buscar códigos QR en la imagen
+        codigos = pyzbar.decode(image)
 
         # Procesar los códigos QR encontrados
         for codigo in codigos:
@@ -195,12 +207,17 @@ class Appinfantil(toga.App):
             # Mostrar los contenidos QR en forma de carrusel
             self.mostrar_contenidos_qr(contenido)
 
-        # Actualizar el visor de cámara con el fotograma procesado
-        self.camera_view.update_image(frame)
+        # Actualizar el visor de la cámara con la imagen procesada
+        self.camera_view.update_image(image)
 
         # Detener la captura de video después de leer 5 códigos QR
         if len(codigos) >= 5:
             self.camera_view.stop_capture()
+    # -------------------------
+    #  -------------------------
+    def camara(self, *args, **kwargs):
+        # Capturar una imagen de la cámara y proporcionar una función de devolución de llamada
+        camera.take_picture('/ruta/imagen.jpg', on_complete=self.leer_qr)
     # -------------------------
     #  -------------------------
     
@@ -208,34 +225,38 @@ class Appinfantil(toga.App):
         # Crear una ventana para mostrar el carrusel
         ventana_carrusel = toga.Window(title="Carrusel de Contenidos QR", size=(600, 400))
 
-        # Crear un carrousel para mostrar los contenidos
-        carrousel = Carousel()
+        # Crear una tabla para mostrar los contenidos
+        tabla = toga.Table(
+            headings=['Contenido QR'],
+            data=[[contenido_qr]],
+            style=Pack(flex=1, padding=5)
+        )
 
-        # Crear una etiqueta con el contenido del código QR
-        etiqueta = Label(contenido_qr)
-
-        # Agregar la etiqueta al carrousel
-        carrousel.add(etiqueta)
-
-        # Crear botones de navegación izquierda y derecha para el carrousel
-        boton_izquierda = Button('<')
-        boton_derecha = Button('>')
+        # Crear botones de navegación izquierda y derecha para el carrusel
+        boton_izquierda = toga.Button('<')
+        boton_derecha = toga.Button('>')
 
         # Configurar las acciones de los botones de navegación
         def ir_a_izquierda(widget):
-            carrousel.select_previous()
+            tabla.scroll_up()
 
         def ir_a_derecha(widget):
-            carrousel.select_next()
+            tabla.scroll_down()
 
         boton_izquierda.on_press = ir_a_izquierda
         boton_derecha.on_press = ir_a_derecha
 
         # Crear una caja para contener los botones de navegación
-        caja_botones = Box(children=[boton_izquierda, boton_derecha], style=Pack(direction=LEFT))
+        caja_botones = toga.Box(
+            children=[boton_izquierda, boton_derecha],
+            style=Pack(direction=LEFT)
+        )
 
-        # Crear una caja para contener el carrousel y los botones de navegación
-        caja_principal = Box(children=[carrousel, caja_botones], style=Pack(direction=RIGHT))
+        # Crear una caja para contener la tabla y los botones de navegación
+        caja_principal = toga.Box(
+            children=[tabla, caja_botones],
+            style=Pack(direction=COLUMN, padding=5)
+        )
 
         # Agregar la caja principal al contenido de la ventana del carrusel
         ventana_carrusel.content = caja_principal

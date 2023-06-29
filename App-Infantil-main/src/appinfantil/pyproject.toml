@@ -1,0 +1,9 @@
+[tool.briefcase]
+project_name = "appinfantilnew"
+bundle = "com.example"
+version = "0.1"
+
+[tool.briefcase.app.appinfantilnew]
+formal_name = "appinfantilnew]"
+description = "My first Briefcase App"
+sources = ['src/appinfantilnew/app.py']
