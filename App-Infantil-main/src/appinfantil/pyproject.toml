@@ -1,9 +1,9 @@
 [tool.briefcase]
-project_name = "appinfantilnew"
-bundle = "com.example"
+project_name = "Appinfantil"
+bundle = "org.pybee.appinfantil"
 version = "0.1"
 
-[tool.briefcase.app.appinfantilnew]
-formal_name = "appinfantilnew]"
+[tool.briefcase.app.appinfantil]
+formal_name = "AppInfantil"
 description = "My first Briefcase App"
-sources = ['src/appinfantilnew/app.py']
+sources = ['App-Infantil-main/src/appinfantil']

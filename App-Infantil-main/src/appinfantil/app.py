@@ -2,7 +2,7 @@ import toga
 import cv2
 from toga.style import Pack
 from toga.style.pack import COLUMN
-import toga_android as toga
+import toga_android as Toga
 from toga.widgets import *
 from toga.constants import LEFT, RIGHT
 from plyer import camera
